@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { showAlert, init } from 'tgui-core';
 
 function Contact() {
   useEffect(() => {
@@ -6,12 +7,13 @@ function Contact() {
     if (window.Telegram?.WebApp) {
       window.Telegram.WebApp.ready();
     }
+
+    // Initialize tgui-core (important for custom UI like alert, confirm, etc.)
+    init();
   }, []);
 
   const handleButtonClick = () => {
-    if (window.Telegram?.WebApp) {
-      window.Telegram.WebApp.showAlert('Hello from Telegram WebApp!');
-    }
+    showAlert('Hello from Telegram WebApp using tgui-core!');
   };
 
   return (
