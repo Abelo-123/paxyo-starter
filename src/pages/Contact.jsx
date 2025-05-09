@@ -1,27 +1,21 @@
-import { useEffect } from 'react';
-import { showAlert, init } from 'tgui-core';
+import React, { useEffect } from 'react';
+import WebApp from '@twa-dev/sdk';
 
-function Contact() {
+function TelegramAlertButton() {
   useEffect(() => {
-    // Initialize Telegram Web App SDK
-    if (window.Telegram?.WebApp) {
-      window.Telegram.WebApp.ready();
-    }
-
-    // Initialize tgui-core (important for custom UI like alert, confirm, etc.)
-    init();
+    WebApp.ready(); // Mark WebApp as ready
   }, []);
 
-  const handleButtonClick = () => {
-    showAlert('Hello from Telegram WebApp using tgui-core!');
+  const handleClick = () => {
+    WebApp.showAlert('Hello from Telegram WebApp SDK!');
   };
 
   return (
     <div>
-      Contact Us: Reach out at contact@example.com.
-      <button onClick={handleButtonClick}>Click me</button>
+      <h2>Telegram WebApp Alert Example</h2>
+      <button onClick={handleClick}>Show Alert</button>
     </div>
   );
 }
 
-export default Contact;
+export default TelegramAlertButton;
