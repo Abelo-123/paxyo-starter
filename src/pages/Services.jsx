@@ -1,5 +1,5 @@
 function Services() {
-  return <div>Our Services: We offer amazing features.</div>;
+  return <div>Our Services: We oer amazing features.</div>;
 }
 
 export default Services;
